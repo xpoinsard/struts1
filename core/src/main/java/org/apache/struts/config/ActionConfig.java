@@ -335,6 +335,33 @@ public class ActionConfig extends BaseConfig {
         this.cancellableSet = true;
     }
 
+    // 2014/07/02 - security problem patch.
+    // Author: NTT DATA Corporation
+    /**
+     * Accepted page value for multi-page validation.<br>
+     * If two or more page values are accepted, then acceptPage is set minimum of them.<br>
+     * If multi-page validation is not use, acceptPage is not set. Then multi-page validation is disabled.
+     */
+    protected Integer acceptPage = null;
+
+    /**
+     * Returns accepted page value for multi-page validation.
+     *
+     * @return Accepted page value for multi-page validation
+     */
+    public Integer getAcceptPage() {
+        return acceptPage;
+    }
+
+    /**
+     * Set accepted page value for multi-page validation.
+     *
+     * @param acceptPage Accepted page value for multi-page validation
+     */
+    public void setAcceptPage(Integer acceptPage) {
+        this.acceptPage = acceptPage;
+    }
+
     /**
      * <p>Returns the path of the ActionConfig that this object should inherit
      * properties from.</p>
@@ -1282,6 +1309,9 @@ public class ActionConfig extends BaseConfig {
             sb.append(",type=");
             sb.append(type);
         }
+
+        sb.append(",acceptPage=");
+        sb.append(acceptPage);
 
         return (sb.toString());
     }
