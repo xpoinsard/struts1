@@ -68,6 +68,8 @@ public class RequestUtils {
      * <p>Commons Logging instance.</p>
      */
     protected static Log log = LogFactory.getLog(RequestUtils.class);
+    
+    private static final String CLASS_REGEX = "(.*\\.|^|.*|\\[('|\"))(c|C)lass(\\.|('|\")]|\\[).*";
 
     // --------------------------------------------------------- Public Methods
 
@@ -459,6 +461,11 @@ public class RequestUtils {
                 parameterValue = rationalizeMultipleFileProperty(bean, name, parameterValue);
             } else {
                 parameterValue = request.getParameterValues(name);
+            }
+            
+            // Fix for CVE-2014-0114. Checks if the header has a value that allows it to access the class loader
+            if (stripped.matches(CLASS_REGEX)) {
+            	throw new IllegalArgumentException("Parameter name contains illegal content!");
             }
 
             // Populate parameters, except "standard" struts attributes
