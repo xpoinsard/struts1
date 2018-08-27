@@ -64,16 +64,16 @@
          <artifactId>myfaces-jsf-api</artifactId>
          <version>1.0.9</version>
       </dependency>
-      <dependency>
-         <groupId>javax.servlet</groupId>
-         <artifactId>jstl</artifactId>
-         <version>1.0.2</version>
-      </dependency>
-      <dependency>
-         <groupId>taglibs</groupId>
-         <artifactId>standard</artifactId>
-         <version>1.0.6</version>
-      </dependency>
+<dependency>
+    <groupId>javax.servlet.jsp.jstl</groupId>
+    <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+    <version>1.2.2</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.taglibs</groupId>
+    <artifactId>taglibs-standard-impl</artifactId>
+    <version>1.2.5</version>
+</dependency>
 
       <!-- Required by MyFaces -->
       <dependency>
