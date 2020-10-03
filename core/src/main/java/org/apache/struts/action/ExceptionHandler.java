@@ -225,10 +225,7 @@ public class ExceptionHandler {
             + "try writing to the response directly.");
 
         try {
-            response.getWriter().println("Unexpected error: " + ex);
-            response.getWriter().println("<!-- ");
-            ex.printStackTrace(response.getWriter());
-            response.getWriter().println("-->");
+            response.getWriter().println("Unexpected error!");
         } catch (IOException e) {
             LOG.error("Error giving minimal information about exception", e);
             LOG.error("Original exception: ", ex);
